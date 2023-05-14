@@ -137,12 +137,3 @@ idpersona int not null,
 
 select * from persona
 
-
-
-
-
-
-
-
-
-
