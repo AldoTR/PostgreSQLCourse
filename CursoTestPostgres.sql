@@ -135,5 +135,3 @@ idpersona int not null,
 --Comprobar que funciona agregando un campo con el PK repetido, que marcará error, y después diferente.
 --insert into persona values ('4','Persona','54321','CursoTest')
 
-select * from persona
-
