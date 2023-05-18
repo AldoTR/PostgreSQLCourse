@@ -135,3 +135,84 @@ idpersona int not null,
 --Comprobar que funciona agregando un campo con el PK repetido, que marcará error, y después diferente.
 --insert into persona values ('4','Persona','54321','CursoTest')
 
+--Función de autoincrementar:
+--Ejemplo: Automatizar asignación de ID.
+
+/*
+Create Table testauto(
+idtest serial primary key not null,
+	nombre varchar(20),
+	telefono varchar(10)
+)
+*/
+
+/*
+select * from testauto
+insert into testauto (nombre,telefono) values ('Aldo','2721919697')
+insert into testauto (nombre,telefono) values ('Adsofsito','2721919899')
+insert into testauto (nombre,telefono) values ('Nelson','2721919292')
+insert into testauto (nombre,telefono) values ('Eduardo','2721919495')
+insert into testauto (nombre,telefono) values ('Guardiola','2721900000')
+*/
+
+--El id va autoincrementando de acuerdo a los registros ingresados.
+
+--Si se quiere vaciar la tabla de datos, pero seguir con el seriado del id, se usa:
+--truncate table testauto
+--si llevabas 6 id e ingresas otro registro, este nuevo será el id 7
+
+--Con este comando se reinicia el conteo:
+--truncate table testauto restart identity
+
+--Establecer valores por defecto:
+/*
+Create Table default(
+idtest serial primary key not null,
+	nombre varchar(20),
+	telefono varchar(20) default 'Desconocido'
+)
+*/
+/*
+Create table pordefe(
+idtest serial primary key not null,
+	nombre varchar(20),
+	telefono varchar(20) default 'Desconocido'
+	)
+*/
+
+/*
+insert into pordefe (nombre,telefono) values ('Guachi','12345')
+insert into pordefe (nombre) values ('AMLO')
+select * from pordefe
+*/
+
+
+--Columnas calculadas
+--Se refiere a agregar una columna en una consulta.
+/*
+Create table Empleados(
+idtest serial primary key not null,
+	nombre varchar(20),
+	salario int
+)
+*/
+
+/*
+select * from empleados
+insert into empleados (nombre,salario) values ('Lalofsito','10000')
+insert into empleados (nombre,salario) values ('El Tio','25000')
+insert into empleados (nombre,salario) values ('Emilio Neuer','10000')
+*/
+
+/*
+select nombre, salario , (salario + 5000)as Bono from empleados
+*/
+--select * from empleados
+
+/*
+Para hacer cambios específicos:
+Update empleados set Salario = Salario + 1500
+Where Nombre = 'Lalofsito'
+--Notar que se borró lo que se agregó antes del bono
+--select * from empleados
+*/
